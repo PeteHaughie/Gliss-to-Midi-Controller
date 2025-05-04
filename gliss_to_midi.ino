@@ -1,7 +1,7 @@
 #include <MIDIUSB.h>
 
 #define NUM_INPUTS 8
-#define SMOOTHING_WINDOW 8  // Number of samples to average
+#define SMOOTHING_WINDOW 64  // Number of samples to average
 
 const int inputPins[NUM_INPUTS] = {A0, A1, A2, A3, A4, A5, A6, A7};
 
