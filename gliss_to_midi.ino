@@ -13,13 +13,14 @@ long bufferSums[NUM_INPUTS] = {0};
 int prevCCValues[NUM_INPUTS] = { -1, -1, -1, -1, -1, -1, -1, -1 };
 
 void setup() {
-    // Nothing needed here for setup
+    for (int i = 0; i < NUM_INPUTS; i++) {
+        pinMode(inputPins[i], INPUT);
+    }
 }
 
 void loop() {
     for (int i = 0; i < NUM_INPUTS; i++) {
         int raw = analogRead(inputPins[i]);
-
         // Update smoothing buffer
         bufferSums[i] -= smoothingBuffers[i][bufferIndices[i]];  // remove oldest
         smoothingBuffers[i][bufferIndices[i]] = raw;              // insert newest
